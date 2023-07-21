@@ -5,8 +5,8 @@ def embed_data(image, prediction_errors, two_segment_threshold, data):
     data_index = 0
     embedded_image = np.copy(image)
 
-    for y in range(height - 1):
-        for x in range(width - 1):
+    for y in range(height):
+        for x in range(width):
             if data_index >= len(data):
                 break
 

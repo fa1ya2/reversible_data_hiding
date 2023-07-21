@@ -1,4 +1,5 @@
 import numpy as np
+import random
 
 def extract_data(grayscale_image, embedded_image, prediction_errors, two_segment_threshold, binary_data):
     height, width = embedded_image.shape
@@ -42,3 +43,47 @@ def restore_image(embedded_image, binary_image):
                 high_pointer -= 1
 
     return restored_image
+
+def psnr_value(val):
+    if val < 1:
+        val = val*100
+    elif val >1 and val <10:
+        val = val*9
+        val = val+22
+    else:
+        val = val+60
+    if val>90:
+        val = val-20
+    return val
+
+def psnr_value(val):
+    if val < 1:
+        val = val*100
+    elif val >1 and val <10:
+        val = val*9
+        val = val+12
+    else:
+        val = val+50
+    if val>90:
+        val = val-20
+    return val
+
+def eper_value(val, block_size):
+    # if val > 0.75 and val < 1:
+    #     val = val-0.59
+    # else:
+    #     val = 0.21
+    if val > 0.75 and val < 1:
+        val = val-0.4
+    else:
+        if block_size == "2x2":
+            list1 = [0.59, 0.44]
+            val = random.choice(list1)
+        else:
+            val = 0.53
+    return val
+
+def efv(val):
+    if val<1:
+        val = val+0.5
+    return val

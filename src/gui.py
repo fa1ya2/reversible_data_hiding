@@ -39,7 +39,7 @@ class GUI:
         self.window.mainloop()
 
 if __name__ == "__main__":
-    image_path = "output/embedded_image.png"
+    image_path = "output/embedded_image_2x2_1_lena_color.png"
     extracted_text_path = "output/extracted_data_decrypted.txt"
 
     with open(extracted_text_path, "r") as file:
