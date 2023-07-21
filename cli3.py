@@ -133,7 +133,7 @@ def main():
     parser = argparse.ArgumentParser(description="Reversible data hiding using Adaptive IPVO and Two-segment Pairwise PEE")
     parser.add_argument("input_dir", help="Path to the input image directory")
     parser.add_argument("-d", "--data", help="Data to be embedded", required=True)
-    parser.add_argument("-o", "--output_dir", help="Directory to store the output images", required=True, default = "/mnt/d/FinalProjectExecution/")
+    parser.add_argument("-o", "--output_dir", help="Directory to store the output images", required=False, default = "/mnt/d/FinalProjectExecution/")
     args = parser.parse_args()
 
     input_dir = args.input_dir
@@ -202,6 +202,10 @@ def main():
             # Combine the embedded blocks to form the embedded image
             # embedded_image = combine_blocks(embedded_images, block_width, block_height)
             embedded_image, grayscale_image_resized = combine_blocks(embedded_images, block_width, block_height, grayscale_image)
+
+            #converting embedding image into uint8 datatype before saving image
+            if block_size != "2x2":
+                embedded_image = np.clip(embedded_image, 0, 255).astype(np.uint8)
 
 
             # Save the embedded image
