@@ -9,6 +9,10 @@ def embed_data(image, prediction_errors, two_segment_threshold, data):
         for x in range(width):
             if data_index >= len(data):
                 break
+            
+            # error = prediction_errors[y, x]
+            # if y == 0 and x < 10:  # print the first few prediction errors and the threshold
+            #     print(f"Prediction error: {error}, threshold: {two_segment_threshold}")
 
             error = prediction_errors[y, x]
             if error > two_segment_threshold:
