@@ -11,6 +11,7 @@ def calculate_prediction_errors(image):
     return prediction_errors
 
 def calculate_two_segment_threshold(prediction_errors):
+    #512
     histogram = np.zeros(512, dtype=np.int32)
     for error in prediction_errors.ravel():
         histogram[error + 255] += 1
@@ -18,6 +19,7 @@ def calculate_two_segment_threshold(prediction_errors):
     max_frequency = 0
     two_segment_threshold = 0
 
+    #512
     for i in range(512):
         if histogram[i] > max_frequency:
             max_frequency = histogram[i]
