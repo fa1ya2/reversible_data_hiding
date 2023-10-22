@@ -18,6 +18,8 @@ from src.performance_evaluation import payload_capacity, embedding_efficiency, p
 
 from src.gui import GUI
 
+#asdf
+
 import os
 import argparse
 import numpy as np
